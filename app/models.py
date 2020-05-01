@@ -21,6 +21,9 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
+    studentnumber = db.Column(db.String(9))
+    firstname = db.Column(db.String(120), index=True, unique=True)
+    lastname =  db.Column(db.String(120), index=True, unique=True)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
         'User', secondary=followers,
@@ -89,3 +92,22 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+class Root(db.Model):
+    customers = db.Column(db.String(100), primary_key=True)
+    business = db.Column(db.String(100))
+    other = db.Column(db.String(100))
+
+
+class Careers(db.Model):
+    WorkLocationinclude = db.Column(db.String(100), primary_key=True)
+    CareerCategory = db.Column(db.String(100))
+    JobTitle = db.Column(db.String(100))
+    Category = db.Column(db.String(100))
+    Location = db.Column(db.String(100))
+
+
+class View(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    view = db.Column(db.String(100), primary_key=True)
