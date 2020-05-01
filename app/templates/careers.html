@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block current_app_content %}
+    <body>
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                <span class="fas fa-home"></span> <h1>Careers With Us</h1>
+            </h1>
+            <br>
+            <h2>PCCW provides a harmonious yet challenging environment in which you will be encouraged to utilize your acquired knowledge, while continuously developing new skill sets. Here you will find job opportunities ranging from entry to managerial levels for both fresh university graduates and experienced professionals.</h2>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                     <div class="card-header bg-danger">Work Location include:</div>
+                     <div class="card-block">
+                         <ul>
+                         <li>Hong Kong</li>
+                         <li>Greater China</li>
+                         <li>Others</li>
+                         </ul>
+                     </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary">Career Category:</div>
+                    <div class="card-block">
+                        <ul>
+                        <li>Corporate Communications</li>
+                        <li>Customer Service</li>
+                        <li>Finance and Tax</li>
+                        <li>Engineering</li>
+                        <li>Human Resources</li>
+                        <li>Information Technology</li>
+                        <li>Internal Audit</li>
+                        <li>Legal</li>
+                        <li>Marketing</li>
+                        <li>Media and Advertising</li>
+                        <li>Office and Facility Administration</li>
+                        <li>Pre-sales and Bid Management</li>
+                        <li>Product Management</li>
+                        <li>Property Management</li>
+                        <li>Purchasing and Logistics</li>
+                        <li>Sales Admin / Planning</li>
+                        <li >Sales and Business Development</li>
+                        <li>Secretarial</li>
+                        <li>Others</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Category</th>
+                        <th>Location</th>
+                        <th>Posted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Direct Sales Representative / Senior Sales Representative</th>
+                        <td>Sales and Business Development</td>
+                        <td>Hong Kong</td>
+                        <td>2020-04-01</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sales Representative / Executive (Call Center - Relocation Hotlines</th>
+                        <td>Sales and Business Development</td>
+                        <td>Hong Kong</td>
+                        <td>2020-04-01</td>
+                    </tr>
+                    <tr class="job-row job-row-even">
+                        <th scope="row">Technical Service Representative / Executive (Call Center)</th>
+                        <td>Customer Service</td>
+                        <td>Hong Kong</td>
+                        <td>2020-04-01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+    <h1>{{ _('Careers Updata') }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+{% endblock %}
