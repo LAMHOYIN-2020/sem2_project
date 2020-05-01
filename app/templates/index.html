@@ -2,8 +2,11 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block current_app_content %}
-    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
-    {% if form %}
+
+    <h1>{{ _('About us') }}</h1>
+    <br>
+    <h4>PCCW Limited (PCCW or the Company) is a global company headquartered in Hong Kong which holds interests in telecommunications, media, IT solutions, property development and investment, and other businesses.The Company holds a majority interest in the HKT Trust and HKT Limited*, Hong Kong’s premier telecommunications service provider and leading operator in fixed-line, broadband and mobile communication services. HKT meets the needs of the Hong Kong public and local and international businesses with a wide range of services including local telephony, local data and broadband, international telecommunications, mobile, and other telecommunications businesses such as customer premises equipment sale, outsourcing, consulting, and contact centers.PCCW also owns a fully integrated multimedia and entertainment group in Hong Kong, PCCW Media. PCCW Media operates the largest local pay-TV operation, Now TV, and is engaged in the provision of over-the-top (OTT) video service under the Viu brand in Hong Kong and other places in the region.Through HK Television Entertainment Company Limited, PCCW also operates a domestic free television service in Hong Kong.Also wholly-owned by the Group, PCCW Solutions is a leading information technology outsourcing and business process outsourcing provider in Hong Kong and mainland China.In addition, PCCW holds a majority interest in Pacific Century Premium Developments Limited, and other overseas investments.PCCW employs approximately 24,000 staff representing 50 nationalities. A majority of our employees are based in Hong Kong and mainland China, while we also maintain a presence in about 40 other countries around the globe.</h4>
+{% if form %}
         {{ wtf.quick_form(form) }}
         <br>
     {% endif %}
@@ -17,7 +20,7 @@
                     <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
                 </a>
             </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
+ <li class="next{% if not next_url %} disabled{% endif %}">
                 <a href="{{ next_url or '#' }}">
                     {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
                 </a>
