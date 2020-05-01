@@ -3,8 +3,8 @@ from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from app import current_app, db
-from app.main.forms import EditProfileForm, PostForm
-from app.models import User, Post
+from app.main.forms import EditProfileForm, PostForm, RootForm, CareersForm
+from app.models import User, Post, Root, Careers
 from app.main import bp
 
 
@@ -52,6 +52,63 @@ def explore():
     return render_template('index.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
+
+@bp.route('/root', methods=['GET', 'POST'])
+@login_required
+def root():
+    form = RootForm()
+    if form.validate_on_submit():
+        root = Root(business=form.business.data, customers=form.customers.data, other=form.other.data)
+        db.session.add(root)
+        db.session.commit()
+        root.query.all()
+        flash(_('Successful update Contact!'))
+
+    return render_template('root.html', title='root',form=form)
+
+
+@bp.route('/digital_journeys')
+@login_required
+def digital_journeys():
+
+    return render_template('digital_journeys.html', title='digital_journeys')
+
+
+@bp.route('/csr')
+@login_required
+def csr():
+
+    return render_template('csr.html', title='csr')
+
+
+@bp.route('/careers', methods=['GET', 'POST'])
+@login_required
+def careers():
+    form = CareersForm()
+    if form.validate_on_submit():
+        careers = Careers(CareerCategory=form.CareerCategory.data, WorkLocationinclude=form.WorkLocationinclude.data,
+                           JobTitle=form.JobTitle.data, Category=form.Category.data, Location=form.Location.data)
+        db.session.add(careers)
+        db.session.commit()
+        careers.query.all()
+        flash(_('Successful update Careers!'))
+
+
+    return render_template('careers.html', title='careers',form=form)
+
+
+@bp.route('/contact')
+@login_required
+def contact():
+
+    return render_template('contact.html',title='contact')
+
+
+
+
+
+
+
 
 
 @bp.route('/user/<username>')
